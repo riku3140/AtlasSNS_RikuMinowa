@@ -28,6 +28,6 @@
     @yield('content')
   </div>
   <script src="JavaScriptファイルのURL"></script>
-  <script src="JavaScriptファイルのURL"></script>
+  <script src="{{ asset('js/script.js')}}"></script>
 </body>
 </html>

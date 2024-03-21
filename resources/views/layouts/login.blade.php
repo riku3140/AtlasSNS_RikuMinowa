@@ -22,16 +22,18 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
+        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
-                <div>
-                <ul>
+                    <p>{{ Auth::user()->username }}さん<img src="images/icon1.png"></p>
+                </div>
+                <div class="accordion">
+                    <ul>
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
@@ -41,7 +43,7 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>〇〇名</p>
@@ -59,6 +61,6 @@
     <footer>
     </footer>
     <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="{{ asset('js/script.js')}}"></script>
 </body>
 </html>
