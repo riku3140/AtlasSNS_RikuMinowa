@@ -30,7 +30,11 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
+Route::post('posts/index','PostsController@createForm')->middleware('auth');  //投稿フォームのルーティング
+
 Route::get('/top','PostsController@index')->middleware('auth');
+
+Route::get('/logout','Auth\LoginController@logout')->middleware('auth');
 
 Route::get('/profile','UsersController@profile')->middleware('auth');
 

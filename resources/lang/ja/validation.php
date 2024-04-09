@@ -120,7 +120,8 @@ return [
         'username' => 'ユーザー名',
         'mail' => 'メールドレス',
         'password' => 'パスワード',
-        'password_confirmation' => 'パスワード確認'
+        'password_confirmation' => 'パスワード確認',
+        'post' => 'つぶやき'
     ],
 
 ];
