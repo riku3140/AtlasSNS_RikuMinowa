@@ -5,7 +5,7 @@ $(function () {
 
 
   });
-
+  // ここから下を編集する、投稿
   $(function () {
     // 編集ボタン(class="js-modal-open")が押されたら発火
     $('.js-modal-open').on('click', function () {

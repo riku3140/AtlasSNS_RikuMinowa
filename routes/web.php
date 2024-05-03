@@ -30,7 +30,29 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
-Route::post('posts/index','PostsController@createForm')->middleware('auth');  //投稿フォームのルーティング
+Route::post('/top','PostsController@createForm')->middleware('auth');  //投稿フォームのルーティング
+
+Route::post('/post/update','PostsController@postupdate')->middleware('auth'); //投稿の編集フォーム
+Route::get('/post/{id}/delete','PostsController@delete')->middleware('auth');   //投稿の削除
+
+Route::get('/search','UsersController@search')->middleware('auth');  //ユーザーの検索
+Route::post('/search','UsersController@search')->middleware('auth');
+
+//フォロー系
+Route::get('/follows','FollowsController@followList')->middleware('auth');
+Route::get('/follow','FollowsController@follow')->middleware('auth');
+Route::get('/anfollow','FollowsController@unfollow')->middleware('auth');
+Route::get('/followers','FollowsController@followerList')->middleware('auth');
+
+
+Route::get('/follows','User@follows')->middleware('auth');
+Route::get('/followers','User@followers')->middleware('auth');
+Route::get('/follows','User@isFollowing')->middleware('auth');
+Route::get('/followers','User@isFollowed')->middleware('auth');
+//routeのルーティング↓
+Route::post('/followers','User@isFollowed')->middleware('auth') ->name('follows.follow');
+Route::post('/follows','User@follows')->middleware('auth') ->name('follows.follow');
+
 
 Route::get('/top','PostsController@index')->middleware('auth');
 
@@ -38,7 +60,7 @@ Route::get('/logout','Auth\LoginController@logout')->middleware('auth');
 
 Route::get('/profile','UsersController@profile')->middleware('auth');
 
-Route::get('/search','UsersController@index')->middleware('auth');
+//Route::get('/search','UsersController@index')->middleware('auth');
 
 Route::get('/follow-list','PostsController@index')->middleware('auth');
 Route::get('/follower-list','PostsController@index')->middleware('auth');
