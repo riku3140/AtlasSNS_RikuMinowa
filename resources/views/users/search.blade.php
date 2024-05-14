@@ -19,24 +19,30 @@
 @if(isset($user)and!(Auth::user()==$user)and(isset($keyword)))
 @endif
 
+if(isset($users))
+<table>
+  @foreach($users as $users)
+  <tr>
+    <td><img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン"></td>
+    <td>{{$user->username}}</td>
+    <td>
+      @if ($user->id !== Auth::user()->id)
+      <form action="{{route('unfollow',$user->id)}}" method="post">
+        @csrf
+        <button type="button" class="btn btn-danger">フォロー解除</button>
+      </form>
+      @else
 
-<form action="{{ route('follows.follow')}}" method='post'>
-  @csrf
-<input type="hidden" name="user_id" value="{{ $user->username }}">
-<button type="submit" class="btn btn-primary">
-@if ($user ->isfollowed)
-フォロー解除
-@endif
+      <form action="{{route('follow',$user->id)}}" method='post'>
+        @csrf
+        <button type="button" class="btn btn-primary">フォローする</button>
+      </form>
+      @endif
+    </td>
+  </tr>
+  @endforeach
+</table>
 
-<form action="{{ route('follows.follow')}}" method='post'>
-  @csrf
-<input type="hidden" name="user_id" value="{{ $user->username }}">
-<button type="submit" class="btn btn-primary">
-@if ($user ->isfollowing)
-フォローする
-@endif
-</button>
-</form>
 @endforeach
 
 

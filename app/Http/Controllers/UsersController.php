@@ -29,7 +29,52 @@ class UsersController extends Controller
         }
     }
 
-    // public function isFollowed(){
+    public function posts(){
+        return $this->hasMany('App\Post');
+    }
 
-    // }
+    //ユーザーがフォローしている、人数の取得
+    public function follows(){
+        return $this -> belongsToMany('App\User','follows','following_id','followed_id');
+    }
+
+    //ユーザーをフォローしている、フォロワー人数の取得
+    public function follower(){
+        return $this ->belongsToMany('App\User','follows', 'following_id','following_id');
+    }
+
+    //フォロー人数の取得
+    public function isFollowing(Int $user_id){
+        return (boolean) $this ->follows() -> where('followed_id',$user_id)->first();
+
+    }
+
+    //フォロワー人数の取得
+    public function isFollowed(Int $user_id){
+        return (boolean) $this -> followers() -> where('following_id',$user_id) ->first(['follows.id']);
+    }
+
+
+    public function follow(User $user){
+        $user = Auth::user();
+        $follower = auth()->user();
+        $is_following = $follower->isFollowing($user->id);
+        if (!$is_following){
+            $follower->follow($user->id);
+        }
+        return back();
+    }
+
+    public function unfollow(User $user){
+        $user = Auth::user();
+        $follower = auth()->user();
+        $is_following = $follower->isFollowing($user->id);
+        if($is_following){
+            $follower->unfollow($user->id);
+        }
+        return back();
+
+    }
+
+
 }
