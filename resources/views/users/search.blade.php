@@ -11,17 +11,13 @@
 <p>検索ワード : {{ $keyword}}</p>
 @endif
 
-@foreach($users as $user)
-<ul>
-  <li><img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン"></li>
-  <li>{{ $user -> username }}</li>
-</ul>
+
 @if(isset($user)and!(Auth::user()==$user)and(isset($keyword)))
 @endif
 
-if(isset($users))
+@if(isset($users))
 <table>
-  @foreach($users as $users)
+  @foreach($users as $user)
   <tr>
     <td><img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン"></td>
     <td>{{$user->username}}</td>
@@ -41,9 +37,8 @@ if(isset($users))
     </td>
   </tr>
   @endforeach
+  @endif
 </table>
-
-@endforeach
 
 
 @endsection

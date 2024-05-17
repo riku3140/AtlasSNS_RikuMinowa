@@ -34,10 +34,9 @@ class User extends Authenticatable
         return $this->follows()->attach($user_id);
     }
 
-    public function unfollow(Int $user_id)
- {
- return $this->follows()->detach($user_id);
- }
+    public function unfollow(Int $user_id){
+        return $this->follows()->detach($user_id);
+    }
 
 
     //ユーザーをフォローしている、フォロワー人数の取得

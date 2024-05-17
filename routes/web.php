@@ -40,8 +40,8 @@ Route::post('/search','UsersController@search')->middleware('auth');
 
 //フォロー系
 Route::get('/follows','FollowsController@followList')->middleware('auth');
-Route::get('/follow','FollowsController@follow')->middleware('auth');
-Route::get('/unfollow','FollowsController@unfollow')->middleware('auth');
+Route::get('/follow','FollowsController@follow')->middleware('auth') ->name('follows');
+Route::get('/unfollow','FollowsController@unfollow')->middleware('auth') ->name('unfollow');
 Route::get('/followers','FollowsController@followerList')->middleware('auth');
 
 
@@ -49,8 +49,7 @@ Route::get('/follows','UsersController@follows')->middleware('auth');
 Route::get('/followers','UsersController@followers')->middleware('auth');
 Route::get('/follows','UsersController@isFollowing')->middleware('auth');
 Route::get('/followers','UsersController@isFollowed')->middleware('auth');
-Route::get('/search','UsersController@unfollow')->middleware('auth');
-Route::get('/search','UsersController@follow')->middleware('auth');
+
 //routeのルーティング↓
 Route::post('/followers','User@isFollowed')->middleware('auth') ->name('follows.follow');
 Route::post('/follows','User@follows')->middleware('auth') ->name('follows.follow');
