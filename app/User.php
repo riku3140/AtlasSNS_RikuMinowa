@@ -30,9 +30,15 @@ class User extends Authenticatable
         return $this -> belongsToMany('App\User','follows','following_id','followed_id');
     }
 
-    public function follow(){
-        return $this -> belongsToMany('App\User','follows','following_id','followed_id');
+    public function follow(Int $user_id){
+        return $this->follows()->attach($user_id);
     }
+
+    public function unfollow(Int $user_id)
+ {
+ return $this->follows()->detach($user_id);
+ }
+
 
     //ユーザーをフォローしている、フォロワー人数の取得
     public function follower(){
