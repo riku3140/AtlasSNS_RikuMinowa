@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class FollowsController extends Controller
 {
     //
-    public function followsList(){
+    public function followList(){
         return view('follows.followList');
     }
 
@@ -47,8 +47,6 @@ class FollowsController extends Controller
 
         // フォローしていれば下記のフォロー解除を実行する
         if ($is_following) {
-
-
             $loggedInUserId = auth()->user()->id;
             Follow::where([
                 ['followed_id', '=', $userId],
