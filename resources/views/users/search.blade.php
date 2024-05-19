@@ -22,14 +22,14 @@
     <td><img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン"></td>
     <td>{{$user->username}}</td>
     <td>
-      @if ($user->id !== Auth::user()->id)
+      @if (auth()->user()->isFollowing($user->id))
       <form action="{{route('unfollow',$user->id)}}" method="post">
         @csrf
         <button type="button" class="btn btn-danger">フォロー解除</button>
       </form>
       @else
 
-      <form action="{{route('follow',$user->id)}}" method='post'>
+      <form action="{{route('follows',$user->id)}}" method='post'>
         @csrf
         <button type="button" class="btn btn-primary">フォローする</button>
       </form>

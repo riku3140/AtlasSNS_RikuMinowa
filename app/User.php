@@ -46,13 +46,13 @@ class User extends Authenticatable
 
     //フォロー人数の取得
     public function isFollowing(Int $user_id){
-        return (boolean) $this ->follows() -> where('followed_id',$user_id)->first();
+        return (bool) $this ->follows() -> where('followed_id',$user_id)->first();
 
     }
 
     //フォロワー人数の取得
     public function isFollowed(Int $user_id){
-        return (boolean) $this -> followers() -> where('following_id',$user_id) ->first(['follows.id']);
+        return (boolean) $this -> followers() -> where('following_id',$user_id) ->first();
     }
 
 }

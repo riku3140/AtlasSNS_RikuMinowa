@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class FollowsController extends Controller
 {
     //
-    public function followList(){
+    public function followsList(){
         return view('follows.followList');
     }
 
@@ -23,12 +23,13 @@ class FollowsController extends Controller
 
         // フォローしていなかったら下記のフォロー処理を実行
         if (!$is_following) {
+
+
             // 自分のユーザーIDを取得
             $loggedInUserId = auth()->user()->id;
             // フォローしたい人のユーザーIDを元にユーザーを取得
             $followedUser = User::find($userId);
             $followedUserId = $followedUser->id;
-
             // フォローデータをデータベースに登録
             Follow::create([
                 'following_id' => $loggedInUserId,
@@ -47,6 +48,7 @@ class FollowsController extends Controller
         // フォローしていれば下記のフォロー解除を実行する
         if ($is_following) {
 
+
             $loggedInUserId = auth()->user()->id;
             Follow::where([
                 ['followed_id', '=', $userId],
@@ -56,4 +58,6 @@ class FollowsController extends Controller
         }
         return redirect('/search');
     }
+
+
 }

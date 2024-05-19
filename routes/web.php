@@ -50,6 +50,13 @@ Route::get('/followers','UsersController@followers')->middleware('auth');
 Route::get('/follows','UsersController@isFollowing')->middleware('auth');
 Route::get('/followers','UsersController@isFollowed')->middleware('auth');
 
+Route::get('/follows','FollowsController@followsList')->middleware('auth');
+Route::get ('/followerList','FollowsController@followList_view')->middleware('auth'); //フォローリスト投稿表示
+
+
+
+
+
 //routeのルーティング↓
 Route::post('/followers','User@isFollowed')->middleware('auth') ->name('follows.follow');
 Route::post('/follows','User@follows')->middleware('auth') ->name('follows.follow');
