@@ -14,12 +14,11 @@ class UsersController extends Controller
 
     public function search(Request $request){
         $user = Auth::user();
-
         $keyword = $request -> input('keyword');
 
         if(!empty($keyword)){
             $query = User::query();
-            $query->where('username' , 'LIKE' , "%{$keyword}%")->where('id' ,'!==', Auth::id());//自分を除く記述　whereを繋げる
+            $query->where('username' , 'LIKE' , "%{$keyword}%")->where('id' ,'!=', Auth::id());//自分を除く記述　whereを繋げる
             $users = $query->get();
             return view('/users/search' , ['users' => $users,'keyword' =>$keyword]);
         }
