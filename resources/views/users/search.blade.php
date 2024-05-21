@@ -25,13 +25,13 @@
       @if (auth()->user()->isFollowing($user->id))
       <form action="{{route('unfollow',$user->id)}}" method="post">
         @csrf
-        <button type="button" class="btn btn-danger">フォロー解除</button>
+        <button type="submit" name="btn btn-danger" value="フォロー解除">
       </form>
       @else
 
       <form action="{{route('follows',$user->id)}}" method='post'>
         @csrf
-        <button type="button" class="btn btn-primary">フォローする</button>
+       <button type="submit" name="btn btn-danger" value="フォローする">
       </form>
       @endif
     </td>
