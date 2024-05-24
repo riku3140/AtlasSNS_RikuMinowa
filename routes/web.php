@@ -59,6 +59,8 @@ Route::get('/follows','FollowsController@followsList')->middleware('auth');
 Route::get ('/followerList','FollowsController@followerList')->middleware('auth');//フォロワーリスト表示
 Route::get('/followList','FollowsController@followList')->middleware('auth');//フォローリスト表示
 
+Route::post('/profile/update','UsersController@updateProfile');
+
 
 
 

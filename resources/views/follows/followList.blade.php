@@ -10,6 +10,7 @@
         @foreach($posts as $post)
     <p>名前:{{ $post->user->username }}</p>
     <p>投稿内容:{{ $post->post }}</p>
+    <p>{{  $post->created_at  }}</p>
         @endforeach
         @endforeach
     </div>

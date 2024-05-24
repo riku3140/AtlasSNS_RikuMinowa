@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use Hash;
 
 class UsersController extends Controller
 {
@@ -12,10 +13,25 @@ class UsersController extends Controller
         return view('users.profile');
     }
 
+    public function updateProfile(Request $request){
+        $id= $request -> input('id');
+        $username = $request -> input('username');
+        $mail = $request -> input('mail');
+        $password = $request -> input('password');
+        $bio = $request -> input('bio');
+
+        User::where('id',$id)->update([
+            'username' => $username,
+            'mail' => $mail,
+            'password' => Hash::make($request->password),
+            'bio' => $bio,
+        ]);
+        return redirect('/top');
+    }
+
     public function search(Request $request){
         $user = Auth::user();
         $keyword = $request -> input('keyword');
-
         if(!empty($keyword)){
             $query = User::query();
             $query->where('username' , 'LIKE' , "%{$keyword}%")->where('id' ,'!=', Auth::id());//自分を除く記述　whereを繋げる
