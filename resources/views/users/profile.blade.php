@@ -3,7 +3,17 @@
 @section('content')
 
 <div class="container">
-  <div class="update">
+  <img src="{{ asset('storage/user-images/'. Auth::user()->images) }}" class="icon-image">
+  <a href="{{ route('profile.show' ,['id' => $user->id]) }}">ユーザーのプロフィール</a>
+
+
+
+
+
+
+
+
+<div class="update">
     {!! Form::open(['url' => '/profile/update']) !!}
     @csrf
     {{Form::hidden('id' ,Auth::user() ->id)}}

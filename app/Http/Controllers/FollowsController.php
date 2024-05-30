@@ -34,7 +34,6 @@ class FollowsController extends Controller
         // フォローしていなかったら下記のフォロー処理を実行
         if (!$is_following) {
 
-
             // 自分のユーザーIDを取得
             $loggedInUserId = auth()->user()->id;
             // フォローしたい人のユーザーIDを元にユーザーを取得

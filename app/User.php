@@ -41,7 +41,7 @@ class User extends Authenticatable
 
     //ユーザーをフォローしている、フォロワー人数の取得
     public function follower(){
-        return $this ->belongsToMany('App\User','follows', 'following_id','following_id');
+        return $this ->belongsToMany('App\User','follows', 'followed_id','following_id');
     }
 
     //フォロー人数の取得
