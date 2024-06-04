@@ -20,12 +20,16 @@ class UsersController extends Controller
         $mail = $request -> input('mail');
         $password = $request -> input('password');
         $bio = $request -> input('bio');
+        $dir = '.gitignore';
+        $request ->file('images')->store('public/'.$dir);
 
         User::where('id',$id)->update([
             'username' => $username,
             'mail' => $mail,
             'password' => Hash::make($request->password),
             'bio' => $bio,
+            'image'=> $image,
+
         ]);
         return redirect('/top');
     }
