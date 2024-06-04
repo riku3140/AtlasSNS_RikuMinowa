@@ -20,7 +20,7 @@ class UsersController extends Controller
         $mail = $request -> input('mail');
         $password = $request -> input('password');
         $bio = $request -> input('bio');
-        $dir = '.gitignore';
+        $dir = 'img';
         $request ->file('images')->store('public/'.$dir);
 
         User::where('id',$id)->update([
