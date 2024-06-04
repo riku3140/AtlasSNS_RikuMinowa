@@ -19,7 +19,7 @@
 <table>
   @foreach($users as $user)
   <tr>
-    <td><img src="{{asset('images/'.$user->images)}}" alt="ユーザーアイコン"></td>
+    <td><img src="{{asset('storage/'.$user->images)}}" alt="ユーザーアイコン"></td>
     <td>{{$user->username}}</td>
     <td>
       @if (auth()->user()->isFollowing($user->id))

@@ -13,6 +13,7 @@ class UsersController extends Controller
         return view('users.profile');
     }
 
+    //プロフィールの更新
     public function updateProfile(Request $request){
         $id= $request -> input('id');
         $username = $request -> input('username');
@@ -28,7 +29,7 @@ class UsersController extends Controller
         ]);
         return redirect('/top');
     }
-
+//ユーザー検索
     public function search(Request $request){
         $user = Auth::user();
         $keyword = $request -> input('keyword');
@@ -50,7 +51,7 @@ class UsersController extends Controller
 
 
 
-
+//フォロー、フォロー解除
     public function follow(User $user){
         $user = Auth::user();
         $follower = auth()->user();

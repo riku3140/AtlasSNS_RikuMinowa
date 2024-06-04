@@ -4,7 +4,7 @@
 
 <div class="container">
   <img src="{{ asset('storage/user-images/'. Auth::user()->images) }}" class="icon-image">
-  <a href="{{ route('profile.show' ,['id' => $user->id]) }}">ユーザーのプロフィール</a>
+
 
 
 
@@ -36,7 +36,7 @@
         <input type="password" name="password_confirmation" value="">
       </div>
       <div class="update-block">
-        <label for="name">bio</label>
+        <label for="name">自己紹介</label>
         <input type="text" name="bio" value="{{Auth::user()->bio}}">
       </div>
       <div class="update-bolck">
