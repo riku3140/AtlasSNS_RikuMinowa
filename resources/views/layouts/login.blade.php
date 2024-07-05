@@ -23,12 +23,12 @@
     <header>
         <div id = "head">
         <h1><a href="/top"><img src="images/atlas.png"></a></h1>
-            <div id="">
-                <div id="">
+            <div class="header-content">
+                <div class="header-logo">
                     <p>{{ Auth::user()->username }}さん<img src="{{ asset('storage/'.Auth::user()->images) }}"></p>
                 </div>
                 <div class="accordion">
-                    <p class="nav-btn">ボタン</p>
+                    <p class="nav-btn"></p>
                     <ul class="nav-menu">
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
@@ -46,13 +46,11 @@
             <div id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div>
-                <p>フォロー数</p>
-                 <p>{{Auth::user()->follows()->count()}}名</p>
+                 <p>フォロー数　{{Auth::user()->follows()->count()}}名</p>
                 </div>
                 <p class="btn"><a href="/followList">フォローリスト</a></p>
                 <div>
-                <p>フォロワー数</p>
-                <p>{{Auth::user()->follower()->count()}}名</p>
+                <p>フォロワー数　{{Auth::user()->follower()->count()}}名</p>
                  <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
                 </div>
             </div>

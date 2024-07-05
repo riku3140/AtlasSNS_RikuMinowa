@@ -8,8 +8,33 @@ body{
 /* header */
 header{
     background:#186AC9;
+    padding: 5px 0;
 }
 
+#head {
+    display: flex; /* フレックスボックスを使用 */
+    justify-content: space-between; /* 子要素を左右に配置 */
+    align-items: center; /* 子要素を垂直方向に中央揃え */
+    padding: 0 10px; /* ヘッダー全体の左右の余白を小さく */
+}
+
+#head h1 {
+    margin: 0; /* 見出しの余白をなくす */
+}
+
+#head h1 img {
+    height: 40px; /* ロゴ画像の高さを小さく */
+    width: auto; /* 幅は自動調整 */
+}
+
+.header-content {
+    display: flex; /* フレックスボックスを使用 */
+    align-items: center; /* 子要素を垂直方向に中央揃え */
+}
+
+.header-content p {
+    margin: 0 20px 0 0; /* 名前の右に余白を追加 */
+}
 /* main content */
 #row{
     display: flex;
@@ -25,10 +50,35 @@ header{
 
 /* ↓アコーディオンメニュー */
 
-.nav-menu{
-    display: none;
-    padding: 10px 20px;
+
+
+.header-logo {
+    display: flex; /* フレックスボックスを使用 */
+    align-items: center; /* 子要素を垂直方向に中央揃え */
+    margin-right: 20px; /* ロゴとアコーディオンの間に余白を追加 */
 }
+
+
+.header-logo img {
+    max-width: 100%; /* 画像が親要素の幅を超えないようにする */
+    height: auto; /* 画像の高さを自動調整 */
+}
+
+.accordion {
+    display: flex; /* フレックスボックスを使用 */
+    align-items: center; /* 子要素を垂直方向に中央揃え */
+    margin-right: 20px; /* アコーディオンメニューと画像の間に余白を追加 */
+}
+
+.nav-menu {
+    display: none;
+    margin-right: 10px; /* アコーディオンアイテム間に余白を追加 */
+    padding: 10px 20px;
+    border: 1px solid #ccc; /* ボーダーを追加 */
+    border-radius: 4px; /* 角を丸くする */
+    background-color: #f9f9f9; /* 背景色を設定 */
+}
+
 
 .nav-btn{
     position: relative;
@@ -80,4 +130,81 @@ header{
     transform: translate(-50%,-50%);
     width: 60%;
 }
+
+/*　矢印画像のサイズ */
+.post-btn {
+    background: none; /* 背景をなしにする */
+    border: none; /* ボーダーをなくす */
+    cursor: pointer; /* カーソルをポインタにする */
+    padding: 0; /* パディングをなくす */
+}
+
+.post-icon {
+    width: 50px; /* 画像の幅 */
+    height: 50px; /* 画像の高さ */
+}
+
+.container {
+    display: flex; /* フレックスボックスを使用 */
+    align-items: center; /* 子要素を垂直方向に中央揃え */
+    justify-content: flex-start; /* 子要素を水平方向に左揃え */
+}
+
+.form-group {
+    flex: 1; /* 残りのスペースを占有する */
+    margin-right: 10px; /* 送信ボタンとの間に余白を追加 */
+}
+
+
+
+.delete-button {
+    display: inline-block; /* インラインブロック要素にする */
+    background-image: url('../images/trash.png'); /* 通常時の背景画像 */
+    background-size: cover; /* 画像をボタンサイズにフィットさせる */
+    width: 40px; /* ボタンの幅 */
+    height: 40px; /* ボタンの高さ */
+    border: none; /* ボーダーをなくす */
+    cursor: pointer; /* カーソルをポインタにする */
+    overflow: hidden; /* 余分なコンテンツを隠す */
+     text-indent: -9999px; /* テキストを隠す */
+}
+
+.edit-btn {
+    display: inline-block; /* インラインブロック要素にする */
+    width: 40px; /* ボタンの幅 */
+    height: 40px; /* ボタンの高さ */
+    background-image: url('../images/edit.png'); /* 通常時の背景画像 */
+    background-size: cover; /* 画像をボタンサイズにフィットさせる */
+    background-position: center; /* 背景画像の位置を中央に設定 */
+    background-repeat: no-repeat; /* 背景画像の繰り返しを無効にする */
+    border: none; /* ボーダーをなくす */
+    cursor: pointer; /* カーソルをポインタにする */
+    padding: 0; /* パディングをなくす */
+    text-indent: -9999px; /* テキストを隠す */
+    overflow: hidden; /* 余分なコンテンツを隠す */
+}
+
+.delete-button:hover {
+    background-image: url('../images/trash-h.png'); /* ホバー時の背景画像 */
+}
+
 /* ここまで投稿のCSS */
+
+
+/* サイドバーのCSS フォロー、検索のボタン */
+.btn {
+    background-color: #186AC9; /* ボタンの背景色 */
+    border: none; /* ボーダーをなくす */
+    color: white; /* 文字色 */
+    padding: 15px 32px; /* 内側の余白 */
+    text-align: center; /* 文字の位置 */
+    display: inline-block; /* インラインブロック要素にする */
+    font-size: 16px; /* 文字サイズ */
+    margin: 4px 2px; /* 外側の余白 */
+    border-radius: 12px; /* ボタンの角を丸くする */
+}
+
+.btn a {
+    color: white; /* <a>タグの文字色を白にする */
+    text-decoration: none; /* テキストの下線を削除 */
+}

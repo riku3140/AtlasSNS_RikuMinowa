@@ -6,12 +6,14 @@
     <div class="follow_icon">
         @foreach($follows as $follow)
         <a><img src="{{ asset('storage/'.$follow->images) }}" alt="フォローアイコン"></a>
+        @endforeach
         <!-- 投稿日時も記載 -->
         @foreach($posts as $post)
+        <!--画像の表示　$postから持ってくる-->
+    <a><img src="{{ asset('storage/' .$follow->images) }}" alt="フォローアイコン"></a>
     <p>名前:{{ $post->user->username }}</p>
     <p>投稿内容:{{ $post->post }}</p>
     <p>{{  $post->created_at  }}</p>
-        @endforeach
         @endforeach
     </div>
 </div>

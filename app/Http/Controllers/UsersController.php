@@ -13,6 +13,11 @@ class UsersController extends Controller
         return view('users.profile');
     }
 
+    public function show($id){
+        $user = User::findOrFail($id);//findOrFail→見つからないときにエラーで出る、findはnullで返す
+        return view('profile.show', compact('user'));
+    }
+
     //プロフィールの更新
     public function updateProfile(Request $request){
         $id= $request -> input('id');
@@ -21,14 +26,15 @@ class UsersController extends Controller
         $password = $request -> input('password');
         $bio = $request -> input('bio');
         $dir = 'img';
-        $request ->file('images')->store('public/'.$dir);
+        $image = $request ->file('images')->store('storage/');  //登録処理
+        $filename = basename($image);
 
         User::where('id',$id)->update([
             'username' => $username,
             'mail' => $mail,
             'password' => Hash::make($request->password),
             'bio' => $bio,
-            'image'=> $image,
+            'images'=> $filename,
 
         ]);
         return redirect('/top');

@@ -10,9 +10,6 @@
 
 
 
-
-
-
 <div class="update">
     {!! Form::open(['url' => '/profile/update','enctype' => "multipart/form-data"]) !!}
     @csrf
