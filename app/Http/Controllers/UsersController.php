@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Hash;
+use App\Post;
 
 class UsersController extends Controller
 {
-    public function profile(){
-        return view('users.profile');
+    public function profile($id){
+        $users = User::where('id',$id)->first();
+        $posts = Post::with(['user'])->where('user_id',$id)->orderBy('created_at','desc')->get();
+        return view('users.profile',['posts' => $posts],['users' => $users]);
     }
 
-    public function show($id){
-        $user = User::findOrFail($id);//findOrFail→見つからないときにエラーで出る、findはnullで返す
-        return view('profile.show', compact('user'));
-    }
+
 
     //プロフィールの更新
     public function updateProfile(Request $request){

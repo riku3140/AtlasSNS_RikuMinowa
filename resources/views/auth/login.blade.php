@@ -2,7 +2,8 @@
 
 @section('content')
 <!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => '/login']) !!}
+<div class="login">
+  {!! Form::open(['url' => '/login']) !!}
 
 <p>AtlasSNSへようこそ</p>
 
@@ -17,4 +18,5 @@
 
 {!! Form::close() !!}
 
+</div>
 @endsection
