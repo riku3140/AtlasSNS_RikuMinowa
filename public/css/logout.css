@@ -1,10 +1,105 @@
 @charset "UTF-8";
 
-html{
-    height: 100%;
+html, body {
+    height: 100%; /* ページ全体に背景を適用するために高さを100%に設定 */
+    margin: 0; /* 余白をリセット */
+    padding: 0; /* パディングをリセット */
 }
 
-body{
+body {
+    background: linear-gradient(to bottom, #1e90ff, #ffd700); /* 上から下に青から黄色へのグラデーション */
+}
+
+header {
+    display: flex;
+    flex-direction: column; /* 子要素を縦に配置 */
+    align-items: center; /* 子要素を中央に配置 */
+    padding: 20px 0; /* ヘッダーの上下のパディングを追加 */
+}
+
+header h1 {
+    margin: 0;
+    color: white; /* テキストの色を白に設定 */
+    font-weight: bold; /* テキストを太くする */
+    font-size: 2em;
+
+}
+
+header h1 img {
+    height: 80px; /* 画像の高さを40pxに設定 */
+    width: auto; /* 幅は自動調整 */
+}
+
+
+header p {
+    color: white; /* テキストの色を白に設定 */
+    font-weight: bold; /* テキストを太くする */
+    margin: 0; /* マージンをリセット */
+    font-size: 3rem;
+}
+
+.login {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 5px;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative; /* 中央に配置するために必要 */
+    top: 50%; /* 中央に配置するために必要 */
+    transform: translateY(-50%); /* 中央に配置するために必要 */
+    display: flex;
+    flex-direction: column; /* 子要素を縦に配置 */
+    align-items: center; /* 子要素を中央に配置 */
+    max-height: 70vh; /* 縦長にするために高さを調整 */
     height: 100%;
-    background: #186AC9;
+    width: 100%;
+}
+
+
+#container { /*フォーム全体*/
+    display: flex;
+    justify-content: center; /* 子要素を水平中央に配置 */
+    align-items: center; /* 子要素を垂直中央に配置 */
+    height: 50vh;
+    margin: 50px 0;
+    flex-direction: column;
+}
+
+.login h1{
+    color: white;
+    text-align: center;
+    padding: 50px;
+    font-size: 1.5em;
+}
+
+
+
+.login .input {
+    font-size: 1.2em; /* フォントサイズを大きくする */
+    padding: 15px; /* パディングを増やす */
+    margin-bottom: 10px; /* 入力フィールドの下にマージンを追加 */
+    width: 100%; /* 横幅を100%に */
+    box-sizing: border-box; /* パディングとボーダーを含む */
+}
+
+.login label {
+    color: white; /* 文字の色を白に設定 */
+    text-align:left;
+    display: block; /* ブロック要素にして縦に並ぶように */
+    margin: 10px 0; /* 上下の余白を追加 */
+}
+
+.login .input, .login input[type="submit"] {
+    display: block; /* ブロック要素にして縦に並ぶように */
+    color: white;
+    background: #d7003a;
+    margin: 10px 0; /* 上下の余白を追加 */
+    width: 100%; /* 横幅を100%に */
+    height: 5vh;
+    box-sizing: border-box; /* パディングとボーダーを含む */
+    border-radius: 10px;
+}
+
+.login p{
+    text-align: center;
 }
