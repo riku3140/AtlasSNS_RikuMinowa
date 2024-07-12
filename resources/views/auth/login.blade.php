@@ -14,7 +14,7 @@
 
 {{ Form::submit('ログイン') }}
 
-<p class="new"><a href="/register">新規ユーザーの方はこちら</a></p>
+<p><a href="/register">新規ユーザーの方はこちら</a></p>
 
 {!! Form::close() !!}
 

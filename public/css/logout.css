@@ -89,7 +89,7 @@ header p {
     margin: 10px 0; /* 上下の余白を追加 */
 }
 
-.login .input, .login input[type="submit"] {
+.login .input {
     display: block; /* ブロック要素にして縦に並ぶように */
     color: white;
     background: #d7003a;
@@ -102,4 +102,19 @@ header p {
 
 .login p{
     text-align: center;
+    padding-top: 50px;
+    color: white;
+}
+
+.login input[type="submit"]{
+    display: block; /* ブロック要素にして縦に並ぶように */
+    color: white;
+    background: #d7003a;
+    margin: 10px 0; /* 上下の余白を追加 */
+    width: 40%; /* 横幅を100%に */
+    height: 5vh;
+    box-sizing: border-box; /* パディングとボーダーを含む */
+    border-radius: 10px;
+    /* position: absolute; */
+    /* right: 10%; */
 }
