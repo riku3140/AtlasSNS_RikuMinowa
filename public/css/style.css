@@ -131,7 +131,67 @@ header{
     width: 60%;
 }
 
-/*　矢印画像のサイズ */
+/*　矢印画像と編集削除ボタンあたり */
+
+.post-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    list-style-type: none;
+    padding-bottom: 20px; /* ボーダーとコンテンツ間に余白を追加 */
+    border-bottom: 1px solid #ccc; /* ボーダーを追加 */
+}
+
+
+.post-icon {
+    margin-right: 30px;
+    margin-left: 150px; /* 左側に余白を追加 */
+}
+
+.post-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-username {
+    font-weight: bold;
+}
+
+.post-text {
+    margin-top: 5px;
+}
+
+.post-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.post-actions li { /*編集と削除ボタン*/
+    display: inline-block; /* ボタンを横並びに */
+    margin-left: 10px; /* ボタン間の余白を設定 */
+}
+
+
+.post-date {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px; /* ボタン間にスペースを追加 */
+}
+
+.edit-btn,
+.delete-button {
+    display: inline-block;
+    margin-left: 0; /* 以前のマージン設定をリセット */
+}
+
 .post-btn {
     background: none; /* 背景をなしにする */
     border: none; /* ボーダーをなくす */
@@ -139,20 +199,44 @@ header{
     padding: 0; /* パディングをなくす */
 }
 
-.post-icon {
+.post-icon { /*矢印画像*/
     width: 50px; /* 画像の幅 */
     height: 50px; /* 画像の高さ */
 }
 
 .container {
-    display: flex; /* フレックスボックスを使用 */
-    align-items: center; /* 子要素を垂直方向に中央揃え */
-    justify-content: flex-start; /* 子要素を水平方向に左揃え */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
+.icon-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px; /* アイコンと入力フィールドの間に余白を追加 */
+    margin-top: 0; /* アイコンの位置を上に調整 */
+}
+
+
+
 .form-group {
-    flex: 1; /* 残りのスペースを占有する */
-    margin-right: 10px; /* 送信ボタンとの間に余白を追加 */
+    display: flex;
+    align-items: flex-start; /* 中央ではなく上に揃える */
+    width: 100%;
+}
+
+.separator {
+    border-top: 8px solid #ccc; /* 太めの線を追加 */
+    margin: 20px 0; /* 上下の余白を追加 */
+}
+
+.form-control {
+    flex: 1;
+    margin-right: 10px; /* 入力フィールドとボタンの間に余白を追加 */
+    border: none; /* 枠線を削除 */
+    box-shadow: none; /* 枠線の影を削除 */
+    resize: none; /* リサイズを無効にする */
 }
 
 
@@ -192,6 +276,7 @@ header{
 
 
 /* サイドバーのCSS フォロー、検索のボタン */
+
 .btn {
     background-color: #186AC9; /* ボタンの背景色 */
     border: none; /* ボーダーをなくす */
@@ -207,4 +292,12 @@ header{
 .btn a {
     color: white; /* <a>タグの文字色を白にする */
     text-decoration: none; /* テキストの下線を削除 */
+}
+
+.follow-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    position: relative;
 }

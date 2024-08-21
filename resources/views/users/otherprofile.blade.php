@@ -4,8 +4,8 @@
 <div class="container">
   <div class="otherprofile">
    <img src="{{ asset('storage/user-images/'. Auth::user()->images) }}" class="icon-image">
-   <a href="{{ route('profile.show',['id' => $user->id]) }}">ユーザーのプロフィール</a>
-  <p>ユーザー名:{{ $post->user->username }}</p>
+   <a href="{{ route('profile.show',['id' => $user ->id]) }}">ユーザーのプロフィール</a>
+  <p>ユーザー名:{{ $user->username }}</p>
   <p>自己紹介:{{ $user->profile }}</p>
   </div>
 </div>
@@ -16,5 +16,7 @@
     <p>名前:{{ $post->user->username }}</p>
     <p>投稿内容:{{ $post->post }}</p>
     <p>{{  $post->created_at  }}</p>
-        @endforeach
+    @endforeach
 </div>
+
+@endsection

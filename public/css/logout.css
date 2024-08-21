@@ -38,6 +38,16 @@ header p {
     font-size: 3rem;
 }
 
+
+#container { /*フォーム全体*/
+    display: flex;
+    justify-content: center; /* 子要素を水平中央に配置 */
+    align-items: center; /* 子要素を垂直中央に配置 */
+    height: 50vh;
+    margin: 50px 0;
+    flex-direction: column;
+}
+
 .login {
     background: rgba(0, 0, 0, 0.15);
     padding: 5px;
@@ -55,15 +65,31 @@ header p {
     width: 100%;
 }
 
-
-#container { /*フォーム全体*/
+.register{                       /*新規ユーザー登録の全部*/
+    background: rgba(0, 0, 0, 0.15);
+    padding-top: 5px;
+    max-width: 400px; /*黒いやつの横幅*/
+    border-radius: 10px;
+    position: relative; /* 中央に配置するために必要 セット*/
+    top: 50%; /* 中央に配置するために必要 セット*/
+    transform: translateY(-50%); /* 中央に配置するために必要 */
     display: flex;
-    justify-content: center; /* 子要素を水平中央に配置 */
-    align-items: center; /* 子要素を垂直中央に配置 */
-    height: 50vh;
-    margin: 50px 0;
-    flex-direction: column;
+    flex-direction: column; /* 子要素を縦に配置 */
+    align-items: center; /* 子要素を中央に配置 */
+    width: 100%;
 }
+
+.register input{                       /*新規登録の入力欄*/
+    display: block; /* ブロック要素にして縦に並ぶように */
+    background: #f0f0f0;
+    margin: 10px 0; /* 上下の余白を追加 */
+    width: 100%; /* 横幅を100%に */
+    height: 5vh;
+    box-sizing: border-box; /* パディングとボーダーを含む */
+    border-radius: 10px;
+    border: 0;
+}
+
 
 .login h1{
     color: white;
@@ -98,6 +124,7 @@ header p {
     height: 5vh;
     box-sizing: border-box; /* パディングとボーダーを含む */
     border-radius: 10px;
+    border: 0;
 }
 
 .login p{
@@ -109,12 +136,22 @@ header p {
 .login input[type="submit"]{
     display: block; /* ブロック要素にして縦に並ぶように */
     color: white;
+
     background: #d7003a;
-    margin: 10px 0; /* 上下の余白を追加 */
+    margin: 10px 0 10px auto; /* 上下の余白を追加 */
     width: 40%; /* 横幅を100%に */
     height: 5vh;
     box-sizing: border-box; /* パディングとボーダーを含む */
     border-radius: 10px;
+    border: 0;
+    font-size: 1.3rem;
     /* position: absolute; */
     /* right: 10%; */
+}
+
+h2{
+    color: white;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 50px;
 }

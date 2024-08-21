@@ -11,9 +11,9 @@ use App\Post;
 class UsersController extends Controller
 {
     public function profile($id){
-        $users = User::where('id',$id)->first();
+        $user = User::where('id',$id)->first();
         $posts = Post::with(['user'])->where('user_id',$id)->orderBy('created_at','desc')->get();
-        return view('users.profile',['posts' => $posts],['users' => $users]);
+        return view('users.otherprofile', compact('user', 'posts'));
     }
 
 
