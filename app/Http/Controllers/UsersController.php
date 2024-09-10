@@ -10,10 +10,16 @@ use App\Post;
 
 class UsersController extends Controller
 {
-    public function profile($id){
+    public function profile($id = null){
+
+        if($id == null){
+        return view('users.profile');
+        }
+
         $user = User::where('id',$id)->first();
         $posts = Post::with(['user'])->where('user_id',$id)->orderBy('created_at','desc')->get();
-        return view('users.otherprofile', compact('user', 'posts'));
+
+        return view('users.otherprofile',compact('user','posts'));
     }
 
 
@@ -25,9 +31,18 @@ class UsersController extends Controller
         $mail = $request -> input('mail');
         $password = $request -> input('password');
         $bio = $request -> input('bio');
+
+        $user = User::find($id);
+
+
+        if ($request->hasFile('images')) {
         $dir = 'img';
-        $image = $request ->file('images')->store('storage/');  //登録処理
+        $image = $request->file('images')->store('storage/'); // 画像登録処理
         $filename = basename($image);
+    } else {
+        // 画像のアップロードがない場合、既存の画像を使用
+        $filename = $user->images;
+    }
 
         User::where('id',$id)->update([
             'username' => $username,

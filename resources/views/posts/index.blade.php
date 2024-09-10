@@ -7,7 +7,7 @@
   <div class="form-group">
     <div class="input-container">
       <img src="{{ asset('storage/user-images/' . Auth::user()->images) }}" alt="ユーザーアイコン" class="icon-image">
-      {{ Form::textarea('text', null, ['required', 'class' => 'form-control','placeholder' => '投稿内容']) }}
+      {{ Form::textarea('text', null, ['required', 'class' => 'form-control','placeholder' => '投稿内容を入力してください']) }}
       <button type="submit" class="post-btn"><img src="images/post.png" alt="送信" class="post-icon"></button>
     </div>
   </div>

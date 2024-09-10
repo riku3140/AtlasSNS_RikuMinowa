@@ -60,7 +60,7 @@ Route::get ('/followerList','FollowsController@followerList')->middleware('auth'
 Route::get('/followList','FollowsController@followList')->middleware('auth');//フォローリスト表示
 
 Route::post('/profile/update','UsersController@updateProfile');
-Route::get('/profile/{id}/otherprofile', 'UsersController@profile')->name('profile.show');//相手のプロフ遷移
+Route::get('/profile/{id?}/otherprofile', 'UsersController@profile')->name('profile.show');//相手のプロフ遷移
 
 
 

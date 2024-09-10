@@ -67,16 +67,15 @@ header p {
 
 .register{                       /*新規ユーザー登録の全部*/
     background: rgba(0, 0, 0, 0.15);
-    padding-top: 5px;
+    padding-bottom: 10px;
     max-width: 400px; /*黒いやつの横幅*/
     border-radius: 10px;
-    position: relative; /* 中央に配置するために必要 セット*/
-    top: 50%; /* 中央に配置するために必要 セット*/
-    transform: translateY(-50%); /* 中央に配置するために必要 */
     display: flex;
     flex-direction: column; /* 子要素を縦に配置 */
     align-items: center; /* 子要素を中央に配置 */
     width: 100%;
+    margin: 0 auto; /* 中央揃えを維持 */
+    color: #f0f0f0;
 }
 
 .register input{                       /*新規登録の入力欄*/
@@ -136,7 +135,6 @@ header p {
 .login input[type="submit"]{
     display: block; /* ブロック要素にして縦に並ぶように */
     color: white;
-
     background: #d7003a;
     margin: 10px 0 10px auto; /* 上下の余白を追加 */
     width: 40%; /* 横幅を100%に */
@@ -153,5 +151,25 @@ h2{
     color: white;
     text-align: center;
     font-size: 1.3rem;
-    padding: 50px;
+    padding: 30px 50px;
+}
+
+.return{
+    color: #f0f0f0;
+    text-align: center;
+}
+
+.register input[type="submit"]{
+    display: block; /* ブロック要素にして縦に並ぶように */
+    color: white;
+    background: #d7003a;
+    margin: 10px 0 10px auto; /* 上下の余白を追加 */
+    width: 40%; /* 横幅を100%に */
+    height: 5vh;
+    box-sizing: border-box; /* パディングとボーダーを含む */
+    border-radius: 10px;
+    border: 0;
+    font-size: 1.0rem;
+    /* position: absolute; */
+    /* right: 10%; */
 }

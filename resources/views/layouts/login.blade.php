@@ -22,7 +22,7 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+        <h1><a href="/top"><img src="/images/atlas.png"></a></h1>
             <div class="header-content">
                 <div class="header-logo">
                     <p>{{ Auth::user()->username }}さん<img src="{{ asset('storage/'.Auth::user()->images) }}"></p>
@@ -60,7 +60,7 @@
     <footer>
     </footer>
     <script src="JavaScriptファイルのURL"></script>
-    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="/js/jquery-3.7.1.min.js"></script>
     <script src="{{ asset('js/script.js')}}"></script>
 </body>
 </html>

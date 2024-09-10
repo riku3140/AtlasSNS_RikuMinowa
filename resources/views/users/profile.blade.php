@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-  <img src="{{ asset('storage/user-images/'. Auth::user()->images) }}" class="icon-image">
+  <img src="{{ asset('storage/'.Auth::user()->images) }}" class="icon-image">
 
 
 
@@ -14,7 +14,6 @@
     {!! Form::open(['url' => '/profile/update','enctype' => "multipart/form-data"]) !!}
     @csrf
     {{Form::hidden('id' ,Auth::user() ->id)}}
-    <img class="update-icon" src="images/icon1.png">
     <div class="update-form">
       <div class="update-block">
         <label for="name">ユーザー名</label>

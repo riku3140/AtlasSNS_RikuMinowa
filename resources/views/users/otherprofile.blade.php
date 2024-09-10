@@ -7,6 +7,20 @@
    <a href="{{ route('profile.show',['id' => $user ->id]) }}">ユーザーのプロフィール</a>
   <p>ユーザー名:{{ $user->username }}</p>
   <p>自己紹介:{{ $user->profile }}</p>
+  <td>
+      @if (auth()->user()->isFollowing($user->id))
+      <form action="{{route('unfollow',$user->id)}}" method="post">
+        @csrf
+        <button type="submit" name="btn btn-danger">フォロー解除</button>
+      </form>
+      @else
+
+      <form action="{{route('follows',$user->id)}}" method='post'>
+        @csrf
+       <button type="submit" name="btn btn-danger">フォローする</button>
+      </form>
+      @endif
+    </td>
   </div>
 </div>
 
