@@ -1,35 +1,55 @@
 $(function () {
+  // アコーディオンメニューの処理
   $(".nav-btn").on("click", function () {
     $(this).next().slideToggle(300);
     $(this).toggleClass("open", 300);
-
-
-  });
-  // ここから下を編集する、投稿
-  $(function () {
-    // 編集ボタン(class="js-modal-open")が押されたら発火
-    $('.js-modal-open').on('click', function () {
-      // モーダルの中身(class="js-modal")の表示
-      $('.js-modal').fadeIn();
-      // 押されたボタンから投稿内容を取得し変数へ格納
-      var post = $(this).attr('post');
-      // 押されたボタンから投稿のidを取得し変数へ格納（どの投稿を編集するか特定するのに必要な為）
-      var post_id = $(this).attr('post_id');
-
-      // 取得した投稿内容をモーダルの中身へ渡す
-      $('.modal_post').text(post);
-      // 取得した投稿のidをモーダルの中身へ渡す
-      $('.modal_id').val(post_id);
-      return false;
-    });
-
-    // 背景部分や閉じるボタン(js-modal-close)が押されたら発火
-    $('.js-modal-close').on('click', function () {
-      // モーダルの中身(class="js-modal")を非表示
-      $('.js-modal').fadeOut();
-      return false;
-    });
   });
 
+  // 投稿の編集モーダル処理
+  $('.js-modal-open').on('click', function () {
+    $('.js-modal').fadeIn();
 
+    var post = $(this).attr('post'); // 投稿内容を取得
+    var post_id = $(this).attr('post_id'); // 投稿IDを取得
+
+
+    $('.modal_post').text(post); // モーダル内の投稿内容に設定
+    $('.modal_id').val(post_id); // モーダル内の投稿IDに設定
+
+    return false; // デフォルトのリンク動作を無効化
+  });
+
+  $('.js-modal-close').on('click', function () {
+    $('.js-modal').fadeOut(); // モーダルを閉じる
+    return false;
+  });
+
+  // ここから削除ボタンの処理
+  $('.js-delete-btn').on('click', function (event) {
+    event.preventDefault(); // デフォルトのリンク動作を無効化
+
+    var deleteUrl = $(this).attr('href'); // 削除するURLを取得
+
+    // カスタム削除モーダルを表示
+    $('.js-confirm-modal').fadeIn();
+
+    // OKボタンがクリックされたら削除を実行
+    $('.confirm-ok').on('click', function () {
+      window.location.href = deleteUrl; // 削除の実行
+    });
+
+    // キャンセルボタンがクリックされたらモーダルを閉じる
+    $('.confirm-cancel').on('click', function () {
+      $('.js-confirm-modal').fadeOut(); // モーダルを閉じる
+    });
+
+    return false;
+  });
+
+  // モーダル外クリック時にモーダルを閉じる処理
+  $(window).on('click', function (event) {
+    if ($(event.target).is('.js-confirm-modal')) {
+      $('.js-confirm-modal').fadeOut();
+    }
+  });
 });

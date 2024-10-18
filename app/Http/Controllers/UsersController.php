@@ -7,6 +7,7 @@ use App\User;
 use Auth;
 use Hash;
 use App\Post;
+use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
@@ -31,6 +32,20 @@ class UsersController extends Controller
         $mail = $request -> input('mail');
         $password = $request -> input('password');
         $bio = $request -> input('bio');
+
+       $validatedData = $request->validate([
+        'username' => 'required|string|min:2|max:12',
+        'mail' => [
+            'required',
+            'email',
+            'min:5',
+            'max:40',
+            Rule::unique('users', 'mail')->ignore($request->user()->id),
+        ],
+        'password' => 'nullable|string|regex:/^[a-zA-Z0-9]+$/|min:8|max:20|confirmed',
+        'bio' => 'nullable|string|max:150',
+        'images' => 'nullable|image|mimes:jpg,png,bmp,gif,svg|max:2048',
+    ]);
 
         $user = User::find($id);
 

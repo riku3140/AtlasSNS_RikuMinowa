@@ -49,7 +49,7 @@ header p {
 }
 
 .login {
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.22);
     padding: 5px;
     max-width: 400px;
     margin: 0 auto;
@@ -172,4 +172,72 @@ h2{
     font-size: 1.0rem;
     /* position: absolute; */
     /* right: 10%; */
+}
+
+ /*登録した後のようこその画面*/
+
+#clear {
+    background: rgba(0, 0, 0, 0.22);
+    border-radius: 15px;
+    padding: 50px 30px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+/* 登録されたユーザー名のスタイル */
+.first p:first-child {
+    font-size: 22px; /* フォントサイズ調整 */
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px; /* 上下のマージンを微調整 */
+    color: white;  /* 緑色部分は気にしないので白に設定 */
+}
+
+/* ようこそメッセージ */
+.first p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+    line-height: 1.0;
+    color: #ffffff;
+}
+
+/* 説明文 */
+.second p {
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    line-height: 1.0;  /* 行間を調整 */
+    color: #ffffff;
+}
+
+/* ボタンのスタイル */
+a.btn {
+    display: inline-block;
+    background-color: #dc3545;
+    color: white;
+    padding: 12px 40px;  /* ボタンの内側余白を調整 */
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+a.btn:hover {
+    background-color: #c82333;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.second p:first-of-type {
+    margin-top: 80px; /* 二行分のスペースを確保 */
 }

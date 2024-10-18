@@ -27,7 +27,16 @@
       @if(Auth::id() == $list->user_id)
       <li class="action-buttons">
         <a class="edit-btn js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}">編集</a>
-        <a class="delete-button" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除しますか？')">削除</a>
+        <a class="delete-button js-delete-btn" href="/post/{{$list->id}}/delete">削除</a>
+        <div class="custom-confirm-modal js-confirm-modal">
+          <div class="modal-content">
+            <p>この投稿を削除します。よろしいでしょうか？</p>
+            <div class="modal-buttons">
+              <button class="confirm-ok">OK</button>
+              <button class="confirm-cancel">キャンセル</button>
+            </div>
+          </div>
+        </div>
       </li>
       @endif
     </div>
@@ -42,7 +51,9 @@
            <form action="/post/update" method="post">
                 <textarea name="uppost" class="modal_post"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="">
-                <input type="submit" value="更新">
+                <button type="submit" class="update-button">
+                  <img src="../images/edit.png" alt="更新" class="update-icon">
+                </button>
                 {{ csrf_field() }}
            </form>
            <a class="js-modal-close" href="">閉じる</a>

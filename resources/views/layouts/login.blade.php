@@ -54,6 +54,7 @@
                  <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
                 </div>
             </div>
+            <div class="line"></div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
