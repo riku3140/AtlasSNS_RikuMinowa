@@ -48,7 +48,7 @@
         <label for="name">アイコン画像</label>
         <input type="file" name="images">
       </div>
-      <input type="submit" class="btn btn-danger">
+      <input type="submit" class="updatebtn" value="更新">
       {{Form::token()}}
       {!! Form::close() !!}
     </div>

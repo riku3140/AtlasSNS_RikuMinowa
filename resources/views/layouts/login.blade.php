@@ -25,16 +25,17 @@
         <h1><a href="/top"><img src="/images/atlas.png"></a></h1>
             <div class="header-content">
                 <div class="header-logo">
-                    <p>{{ Auth::user()->username }}さん<img src="{{ asset('storage/'.Auth::user()->images) }}"></p>
+                    <p class="name">{{ Auth::user()->username }} さん</p>
                 </div>
                 <div class="accordion">
                     <p class="nav-btn"></p>
                     <ul class="nav-menu">
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
+                    <li class="menu-item"><a href="/top">ホーム</a></li>
+                    <li class="menu-item"><a href="/profile">プロフィール</a></li>
+                    <li class="menu-item"><a href="/logout">ログアウト</a></li>
                     </ul>
                 </div>
+                <img src="{{ asset('storage/'.Auth::user()->images) }}">
             </div>
         </div>
     </header>
@@ -46,14 +47,16 @@
             <div id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div class="follow-info">
-                 <p>フォロー数　{{Auth::user()->follows()->count()}}名</p>
+                 <p class="follow-count">フォロー数</p>
+                 <p class="count">{{Auth::user()->follows()->count()}}名</p>
                 </div>
                 <p class="btn"><a href="/followList">フォローリスト</a></p>
+
                 <div class="follow-info">
-                <p>フォロワー数　{{Auth::user()->follower()->count()}}名</p>
-                 <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
+                    <p class="follower-count">フォロワー数</p>
+                    <p class="count">{{Auth::user()->follower()->count()}}名</p>
                 </div>
-            </div>
+                 <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
             <div class="line"></div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>

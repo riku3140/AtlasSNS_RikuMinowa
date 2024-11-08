@@ -5,6 +5,7 @@ $(function () {
     $(this).toggleClass("open", 300);
   });
 
+
   // 投稿の編集モーダル処理
   $('.js-modal-open').on('click', function () {
     $('.js-modal').fadeIn();

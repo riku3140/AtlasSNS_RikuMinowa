@@ -9,6 +9,7 @@
         <a class="" href="profile/{{$followed->id}}/otherprofile">
             <img src="{{ asset('storage/'.$followed->images) }}" alt="フォローアイコン"></a>
         @endforeach
+        <div class="separator"></div>
         @foreach($posts as $post)
         <a><img src="{{ asset('storage/'.$followed->images) }}" alt="フォローアイコン"></a>
     <p>名前:{{ $post->user->username }}</p>

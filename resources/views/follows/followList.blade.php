@@ -8,6 +8,7 @@
         <a class="" href="profile/{{$follow->id}}/otherprofile">
             <img src="{{ asset('storage/'.$follow->images) }}" alt="フォローアイコン"></a>
         @endforeach
+        <div class="separator"></div>
         <!-- 投稿日時も記載 -->
         @foreach($posts as $post)
         <!--画像の表示　$postから持ってくる-->
