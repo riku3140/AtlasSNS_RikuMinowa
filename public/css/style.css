@@ -142,12 +142,12 @@ header{
     align-items: flex-start;
     margin-bottom: 20px;
     list-style-type: none;
-    padding-bottom: 20px; /* ボーダーとコンテンツ間に余白を追加 */
+    padding-bottom: 30px; /* ボーダーとコンテンツ間に余白を追加 */
     border-bottom: 1px solid #ccc; /* ボーダーを追加 */
 }
 
 
-.post-icon {
+.post-name {
     margin-right: 30px;
     margin-left: 150px; /* 左側に余白を追加 */
 }
@@ -163,7 +163,7 @@ header{
 }
 
 .post-text {
-    margin-top: 5px;
+    margin-top: 30px;
 }
 
 .post-actions {
@@ -179,9 +179,9 @@ header{
 
 
 .post-date {
-    font-size: 0.8em;
-    color: #888;
-    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #000;
+    margin: 15px;
 }
 
 .action-buttons {
@@ -205,6 +205,7 @@ header{
 .post-icon { /*矢印画像*/
     width: 50px; /* 画像の幅 */
     height: 50px; /* 画像の高さ */
+    border-radius: 8px;
 }
 
 .container {
@@ -215,10 +216,10 @@ header{
 }
 
 .icon-image {
-    width: 40px;
-    height: 40px;
+    width: 64px;
+    height: 64px;
     margin-right: 10px; /* アイコンと入力フィールドの間に余白を追加 */
-    margin-top: 0; /* アイコンの位置を上に調整 */
+    margin-bottom: 90px;
 }
 
 
@@ -240,6 +241,10 @@ header{
     border: none; /* 枠線を削除 */
     box-shadow: none; /* 枠線の影を削除 */
     resize: none; /* リサイズを無効にする */
+    width: 700px;
+    height: 200px;
+    font-size: 20px;
+    opacity: 0.3;
 }
 
 
@@ -253,7 +258,7 @@ header{
     border: none; /* ボーダーをなくす */
     cursor: pointer; /* カーソルをポインタにする */
     overflow: hidden; /* 余分なコンテンツを隠す */
-     text-indent: -9999px; /* テキストを隠す */
+    text-indent: -9999px; /* テキストを隠す */
 }
 
 .edit-btn {
@@ -284,6 +289,7 @@ header{
 .line{
     border-top: 2px solid #ccc; /* 太めの線を追加 */
     margin: 20px 0; /* 上下の余白を追加 */
+    width: 110%;
 }
 
 .btn {
@@ -292,19 +298,58 @@ header{
     color: white; /* 文字色 */
     padding: 15px 32px; /* 内側の余白 */
     text-align: center; /* 文字の位置 */
-    display: inline-block; /* インラインブロック要素にする */
     font-size: 16px; /* 文字サイズ */
     border-radius: 12px; /* ボタンの角を丸くする */
+    width: 8rem;
+    margin-left: 150px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .btn a {
     color: white; /* <a>タグの文字色を白にする */
     text-decoration: none; /* テキストの下線を削除 */
 }
+.btn-search{
+    background-color: #186AC9; /* ボタンの背景色 */
+    border: none; /* ボーダーをなくす */
+    color: white; /* 文字色 */
+    padding: 15px 32px; /* 内側の余白 */
+    text-align: center; /* 文字の位置 */
+    font-size: 16px; /* 文字サイズ */
+    border-radius: 12px; /* ボタンの角を丸くする */
+    width: 8rem;
+    margin: auto;
+}
+
+.btn-search a {
+    color: white; /* <a>タグの文字色を白にする */
+    text-decoration: none; /* テキストの下線を削除 */
+}
+
+.username{
+    margin: 40px 20px 30px 20px;
+}
+
+/*フォローボタン*/
+.btn-follow {
+    background-color: #186AC9;
+    color: white;
+    border: none;
+    padding: 4px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+
+
+
+
 
 .follow-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-right: 150px;
     align-items: center;
     margin-bottom: 10px;
 }
@@ -428,8 +473,12 @@ header{
     width: 200px;
     font-size: 20px;
     font-weight: bold;
-    text-align: right;
+    text-align: left;
     margin-right: 30px;
+}
+
+.input-container{
+    max-width: 100%;
 }
 
 .update-block input[type="text"],
@@ -439,17 +488,56 @@ header{
     width: 100%;
     max-width: 350px;
     margin: 10px;
-    padding: 10px;
-    font-size: 30px;
+    padding: 15px;
+    font-size: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #f3f3f3;
 }
 
-.update-block input[type="file"] {
-    display: none; /* ファイル選択ボタンを隠す */
+.custom-file-input {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    height: 50px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #999;
+    cursor: pointer;
+    overflow: hidden;
+}
+.update-block label[for="file-upload"] {
+    position: relative;
+    top: -20px; /* 上に移動 */
+    margin-bottom: 8px; /* 他の入力欄とのバランス調整 */
 }
 
+/* 実際のファイル入力を非表示に */
+.file-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* 入力欄文字のスタイル */
+.file-placeholder {
+    background-color: white;  /* 白背景 */
+    padding: 10px 40px;        /* 文字周囲の余白 */
+    border-radius: 4px;       /* 角を丸める */
+    font-size: 16px;          /* 文字サイズ */
+    color: #666;              /* 文字色 */
+    z-index: 1;
+    pointer-events: none;     /* プレースホルダーをクリック不可に */
+}
 /* ファイル選択用のカスタムボタンを作成 */
 .file-upload-wrapper {
     width: 100%;
@@ -525,14 +613,163 @@ header{
 }
 
 .updatebtn{
-    background-color: #ff0000; /* ボタンの背景色 */
+    background-color: #ff4747; /* ボタンの背景色 */
     border: none; /* ボーダーをなくす */
     color: white; /* 文字色 */
     padding: 10px 32px; /* 内側の余白 */
     text-align: center; /* 文字の位置 */
     display: inline-block; /* インラインブロック要素にする */
     font-size: 16px; /* 文字サイズ */
-    margin: 4px 2px; /* 外側の余白 */
     border-radius: 12px; /* ボタンの角を丸くする */
     width: 200px;
+    margin-left: 100px;
+}
+
+.profile-icon{
+    padding-bottom: 550px;
+}
+
+
+/*フォローリストとフォロワーリストのレイアウト*/
+
+.follow_post{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    list-style-type: none;
+    padding-bottom: 20px; /* ボーダーとコンテンツ間に余白を追加 */
+    border-bottom: 2px solid #ccc; /* ボーダーを追加 */
+}
+
+/* フォローリストって文字 */
+.follow_top{
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+.follow_header{
+    display: flex; /* 横並びにする */
+    align-items: center; /* 縦方向の中央揃え */
+    justify-content: center; /* 横方向の中央揃え */
+    gap: 70px; /* h1 と .follow_icon の間のスペース */
+    margin-top: 20px;
+    margin-bottom: 40px; /* 下に少し余白 */
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.follow_icon{
+    gap: 10px;               /* アイコン間のスペース */
+}
+
+.follow_icon a img {
+    width: 60px;             /* アイコンのサイズを調整（必要に応じて変更） */
+    height: 60px;            /* アイコンの高さを調整（必要に応じて変更） */
+}
+
+/* ユーザー検索する画面のホームレイアウト */
+.search-form {
+    display: flex;
+    justify-content: center;  /* フォーム全体を中央揃え */
+    align-items: center;      /* フォーム内要素の縦方向を中央揃え */
+    gap: 8px;                 /* 入力欄とボタンの間の間隔 */
+    margin-top: 20px;         /* 上に余白 */
+}
+
+/* 入力フィールドのスタイル */
+/* 検索フォーム全体のスタイル */
+.search-form {
+    display: flex;
+    justify-content: flex-start; /* 左寄せ */
+    align-items: center;
+    gap: 15px;                    /* 入力欄とボタンの間のスペース */
+    margin-top: 20px;
+    margin-left: 70px;
+    padding: 40px 0;
+}
+
+/* 入力フィールドのスタイル */
+.form {
+    font-size: 20px;
+    border: 2px solid #000;      /* 枠線を太くする */
+    border-radius: 4px;
+    outline: none;
+    width: 450px;                /* 入力フィールドの幅 */
+    height: 48px;                /* 検索アイコンと同じ高さに調整 */
+    padding-left: 20px;
+}
+
+/* 検索ボタンのスタイル */
+.btn-success {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 検索アイコンのスタイル */
+.search-icon {
+    width: 53px;                 /* アイコンの幅と高さを入力欄に合わせる */
+    height: 53px;
+    border-radius: 10px;          /* 角を丸くする */
+}
+
+
+/* テーブル全体のスタイルをリセット */
+/* テーブル全体の中央配置 */
+.user-table {
+    width: 100%;
+    /*border-collapse: collapse;*/
+}
+
+/* 各行のスタイルを中央に寄せる */
+.user-row {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    margin-left: 500px;
+}
+
+/* アイコンのスタイル */
+.user-icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+/* ユーザー名のスタイル */
+.user-name {
+    font-size: 20px;
+}
+
+/* フォローボタンの配置を中央に */
+.follow-button {
+    position: absolute;
+    left: 900px;
+}
+
+.btn-follow {
+    background-color: #5cb85c; /* 緑 */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* フォロー解除ボタン */
+.btn-unfollow {
+    background-color: #d9534f; /* 赤 */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
 }

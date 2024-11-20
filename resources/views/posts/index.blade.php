@@ -6,7 +6,7 @@
   {{ Form::token() }}
   <div class="form-group">
     <div class="input-container">
-      <img src="{{ asset('storage/user-images/' . Auth::user()->images) }}" alt="ユーザーアイコン" class="icon-image">
+      <img src="{{ asset('storage/images/' . Auth::user()->images) }}" alt="ユーザーアイコン" class="icon-image">
       {{ Form::textarea('text', null, ['required', 'class' => 'form-control','placeholder' => '投稿内容を入力してください']) }}
       <button type="submit" class="post-btn"><img src="images/post.png" alt="送信" class="post-icon"></button>
     </div>
@@ -17,7 +17,7 @@
 <div>
   @foreach($list as $list)
   <ul class="post-item">
-    <li class="post-icon"><img src="{{ asset('storage/'.$list->user->images) }}" alt="ユーザーアイコン"></li>
+    <li class="post-name"><img src="{{ asset('storage/'.$list->user->images) }}" alt="ユーザーアイコン"></li>
     <div class="post-content">
       <li class="post-username">{{ $list->user->username }}</li>
       <li class="post-text">{{ $list->post }}</li>

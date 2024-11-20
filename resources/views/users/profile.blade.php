@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-  <img src="{{ asset('storage/'.Auth::user()->images) }}" class="icon-image">
+  <img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-icon">
 
 
 
@@ -44,9 +44,12 @@
         <label for="name">自己紹介</label>
         <input type="text" name="bio" value="{{Auth::user()->bio}}">
       </div>
-      <div class="update-bolck">
-        <label for="name">アイコン画像</label>
-        <input type="file" name="images">
+      <div class="update-block">
+        <label for="file-upload">アイコン画像</label>
+        <div class="custom-file-input">
+            <input type="file" name="images" id="file-upload" class="file-input">
+            <span class="file-placeholder">ファイルを選択</span>
+        </div>
       </div>
       <input type="submit" class="updatebtn" value="更新">
       {{Form::token()}}

@@ -1,23 +1,30 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="container">
-    <h1>フォローリスト</h1>
-    <div class="follow_icon">
+<div class="follow_list">
+    <div class="follow_header">
+        <h1 class="follow_top">フォローリスト</h1>
+        <div class="follow_icon">
         @foreach($follows as $follow)
         <a class="" href="profile/{{$follow->id}}/otherprofile">
             <img src="{{ asset('storage/'.$follow->images) }}" alt="フォローアイコン"></a>
         @endforeach
-        <div class="separator"></div>
-        <!-- 投稿日時も記載 -->
-        @foreach($posts as $post)
-        <!--画像の表示　$postから持ってくる-->
-    <a><img src="{{ asset('storage/' .$post->user->images) }}" alt="フォローアイコン"></a>
-    <p>名前:{{ $post->user->username }}</p>
-    <p>投稿内容:{{ $post->post }}</p>
-    <p>{{  $post->created_at  }}</p>
-        @endforeach
+        </div>
     </div>
+
+    <div class="separator"></div>
+    @foreach($posts as $post)
+    <div class="follow_post">
+        <!--画像の表示　$postから持ってくる-->
+        <a class="post-name"><img src="{{ asset('storage/' .$post->user->images) }}" alt="フォローアイコン"></a>
+        <div class="post-content">
+            <p class="post-username">{{ $post->user->username }}</p>
+            <p class="post-text">{{ $post->post }}</p>
+        </div>
+
+        <p class="post-date">{{  $post->created_at  }}</p>
+    </div>
+    @endforeach
 </div>
 
 

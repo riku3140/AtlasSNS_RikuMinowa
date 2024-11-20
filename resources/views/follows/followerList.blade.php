@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="follower_list">
     <h1>フォロワーリスト</h1>
     <div class="follow_icon">
         @foreach($followed as $followed)
