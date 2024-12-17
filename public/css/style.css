@@ -210,16 +210,17 @@ header{
 
 .container {
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin-left: 100px;
     margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 .icon-image {
     width: 64px;
     height: 64px;
     margin-right: 10px; /* アイコンと入力フィールドの間に余白を追加 */
-    margin-bottom: 90px;
+    padding-bottom: 60px;
 }
 
 
@@ -236,13 +237,12 @@ header{
 }
 
 .form-control {
-    flex: 1;
     margin-right: 10px; /* 入力フィールドとボタンの間に余白を追加 */
     border: none; /* 枠線を削除 */
     box-shadow: none; /* 枠線の影を削除 */
     resize: none; /* リサイズを無効にする */
-    width: 700px;
-    height: 200px;
+    width: 900px;
+    height: 100px;
     font-size: 20px;
     opacity: 0.3;
 }
@@ -330,20 +330,6 @@ header{
 .username{
     margin: 40px 20px 30px 20px;
 }
-
-/*フォローボタン*/
-.btn-follow {
-    background-color: #186AC9;
-    color: white;
-    border: none;
-    padding: 4px 12px;
-    font-size: 12px;
-    border-radius: 4px;
-}
-
-
-
-
 
 
 .follow-info {
@@ -718,6 +704,18 @@ header{
     border-radius: 10px;          /* 角を丸くする */
 }
 
+.search-container {
+    display: flex;
+    align-items: center; /* 垂直方向を中央揃え */
+    gap: 20px;           /* フォームと検索結果の間にスペース */
+}
+
+.search-result {
+    font-size: 30px;
+    color: #333;
+    margin: 20px 0px 0px 300px;
+    white-space: nowrap; /* 検索結果を1行で表示 */
+}
 
 /* テーブル全体のスタイルをリセット */
 /* テーブル全体の中央配置 */
@@ -753,23 +751,75 @@ header{
     left: 900px;
 }
 
+/*フォローボタン*/
 .btn-follow {
-    background-color: #5cb85c; /* 緑 */
+    background-color: #3399ff;
     color: white;
     border: none;
-    padding: 8px 12px;
+    padding: 12px 36px;
     font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 /* フォロー解除ボタン */
 .btn-unfollow {
-    background-color: #d9534f; /* 赤 */
+    background-color: #e2041b; /* 赤 */
     color: white;
     border: none;
-    padding: 8px 12px;
+    padding: 12px 36px;
     font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
+    border-radius: 8px;
+}
+
+.otherprofile {
+    position: relative;
+    display: flex;              /* 横並びに配置 */
+    align-items: center;        /* 垂直方向を中央揃え */
+    gap: 20px;                  /* 画像とテキストの間隔 */
+    font-size: 25px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+    height: 150px;
+    text-align: left;
+
+}
+
+.other-content{
+    width: 80%;
+}
+
+.other-name{
+    margin-top: 40px;
+}
+
+.other-bio{
+    margin-top: 40px;
+}
+
+.other-name .label {
+    margin-right: 100px; /* ユーザー名と値の間の余白 */
+}
+
+.other-bio .label{
+    margin-right: 123px;
+}
+
+.unfollow-btn{
+    background-color: #e2041b; /* 赤 */
+    color: white;
+    border: none;
+    padding: 12px 36px;
+    margin-top: 80px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.follow-btn {
+    background-color: #3399ff;
+    color: white;
+    border: none;
+    padding: 12px 36px;
+    margin-top: 80px;
+    font-size: 14px;
+    border-radius: 8px;
 }

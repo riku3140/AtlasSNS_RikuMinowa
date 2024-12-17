@@ -2,20 +2,26 @@
 
 @section('content')
 
-<div class="follower_list">
-    <h1>フォロワーリスト</h1>
-    <div class="follow_icon">
-        @foreach($followed as $followed)
-        <a class="" href="profile/{{$followed->id}}/otherprofile">
-            <img src="{{ asset('storage/'.$followed->images) }}" alt="フォローアイコン"></a>
-        @endforeach
-        <div class="separator"></div>
-        @foreach($posts as $post)
-        <a><img src="{{ asset('storage/'.$followed->images) }}" alt="フォローアイコン"></a>
-    <p>名前:{{ $post->user->username }}</p>
-    <p>投稿内容:{{ $post->post }}</p>
-    <p>{{  $post->created_at  }}</p>
-    @endforeach
+<div class="follow_list">
+    <div class="follow_header">
+        <h1 class="follow_top">フォロワーリスト</h1>
+        <div class="follow-icon">
+            @foreach($followed as $followed)
+            <a class="" href="profile/{{$followed->id}}/otherprofile">
+                <img src="{{ asset('storage/'.$followed->images) }}" alt="フォローアイコン"></a>
+                @endforeach
+        </div>
     </div>
+    <div class="separator"></div>
+    @foreach($posts as $post)
+    <div class="follow_post">
+        <a class="post-name"><img src="{{ asset('storage/' .$followed->images) }}" alt="フォローアイコン"></a>
+        <div class="post-content">
+            <p class="post-username">{{ $post->user->username }}</p>
+            <p class="post-text">{{ $post->post }}</p>
+        </div>
+        <p class="post-date">{{  $post->created_at  }}</p>
+    </div>
+    @endforeach
 </div>
 @endsection

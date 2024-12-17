@@ -1,17 +1,20 @@
 @extends('layouts.login')
 
 @section('content')
-
-<form action="/search" method="post" class="search-form">
+<div class="search-container">
+  <form action="/search" method="post" class="search-form">
   @csrf
   <input type="text" name="keyword" class="form" placeholder="ユーザー名">
   <button type="submit" class="btn-success">
     <img src="/images/search.png" alt="検索" class="search-icon">
   </button>
-</form>
+  </form>
 @if (!empty($keyword))
-<p>検索ワード : {{ $keyword}}</p>
+<p class="search-result">検索ワード : {{ $keyword}}</p>
 @endif
+</div>
+
+
 
 
 @if(isset($user)and!(Auth::user()==$user)and(isset($keyword)))
@@ -29,13 +32,13 @@
       @if (auth()->user()->isFollowing($user->id))
       <form action="{{route('unfollow',$user->id)}}" method="post">
         @csrf
-        <button type="submit" name="btn-unfollow">フォロー解除</button>
+        <button type="submit" class="btn-unfollow">フォロー解除</button>
       </form>
       @else
 
       <form action="{{route('follows',$user->id)}}" method='post'>
         @csrf
-       <button type="submit" name="btn-follow">フォローする</button>
+       <button type="submit" class="btn-follow">フォローする</button>
       </form>
       @endif
     </td>
