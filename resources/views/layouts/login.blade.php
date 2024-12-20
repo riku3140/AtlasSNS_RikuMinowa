@@ -30,8 +30,8 @@
                 <div class="accordion">
                     <p class="nav-btn"></p>
                     <ul class="nav-menu">
-                    <li class="menu-item"><a href="/top">ホーム</a></li>
-                    <li class="menu-item"><a href="/profile">プロフィール</a></li>
+                    <li class="menu-item"><a href="/top">HOME</a></li>
+                    <li class="menu-item"><a href="/profile">プロフィール編集</a></li>
                     <li class="menu-item"><a href="/logout">ログアウト</a></li>
                     </ul>
                 </div>

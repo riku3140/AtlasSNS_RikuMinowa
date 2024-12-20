@@ -70,16 +70,14 @@ header{
 .accordion {
     display: flex; /* フレックスボックスを使用 */
     align-items: center; /* 子要素を垂直方向に中央揃え */
-    margin-right: 20px; /* アコーディオンメニューと画像の間に余白を追加 */
+    margin-right: 5px; /* アコーディオンメニューと画像の間に余白を追加 */
 }
 
 .nav-menu {
-    display: none;
     margin-right: 10px; /* アコーディオンアイテム間に余白を追加 */
     padding: 10px 20px;
-    border: 1px solid #ccc; /* ボーダーを追加 */
-    border-radius: 4px; /* 角を丸くする */
     background-color: #f9f9f9; /* 背景色を設定 */
+    z-index: 1000;
 }
 
 
@@ -104,6 +102,12 @@ header{
 .nav-btn.open::after {
     top: 45%;
     transform: rotate(-45deg);
+}
+
+.menu-item{
+    padding: 20px 100px;
+    text-align: center;
+    color: #727272;
 }
 
 /* 必要に応じて編集しご自身でSNS課題のレイアウトのようにカスタマイズしてください。 */
