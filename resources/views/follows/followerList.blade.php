@@ -20,7 +20,7 @@
             <p class="post-username">{{ $post->user->username }}</p>
             <p class="post-text">{{ $post->post }}</p>
         </div>
-        <p class="post-date">{{  $post->created_at  }}</p>
+        <p class="post-date">{{  $post->created_at->format('Y-m-d H:i')  }}</p>
     </div>
     @endforeach
 </div>

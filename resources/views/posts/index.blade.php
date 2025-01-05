@@ -23,7 +23,7 @@
       <li class="post-text">{{ $list->post }}</li>
     </div>
     <div class="post-actions">
-      <li class="post-date">{{ $list->created_at }}</li>
+      <li class="post-date">{{ $list->created_at->format('Y-m-d H:i') }}</li>
       @if(Auth::id() == $list->user_id)
       <li class="action-buttons">
         <a class="edit-btn js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}">編集</a>

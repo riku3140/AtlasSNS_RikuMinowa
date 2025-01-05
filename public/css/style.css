@@ -71,13 +71,18 @@ header{
     display: flex; /* フレックスボックスを使用 */
     align-items: center; /* 子要素を垂直方向に中央揃え */
     margin-right: 5px; /* アコーディオンメニューと画像の間に余白を追加 */
+    font-size: 20px;
 }
 
 .nav-menu {
-    margin-right: 10px; /* アコーディオンアイテム間に余白を追加 */
-    padding: 10px 20px;
+    display: none;   /*これがないと開きっぱになる*/
+    width: 25vw;
+    margin-bottom: calc(150% - 50vw);
     background-color: #f9f9f9; /* 背景色を設定 */
     z-index: 1000;
+    border-color: #19448e;
+    border-width: 1px;
+    border-style: solid;
 }
 
 
@@ -107,7 +112,10 @@ header{
 .menu-item{
     padding: 20px 100px;
     text-align: center;
-    color: #727272;
+    border-color: #19448e;
+    border-width: 1px;
+    border-style: solid;
+
 }
 
 /* 必要に応じて編集しご自身でSNS課題のレイアウトのようにカスタマイズしてください。 */

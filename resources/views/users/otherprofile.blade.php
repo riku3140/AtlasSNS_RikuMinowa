@@ -2,7 +2,7 @@
 
 @section('content')
   <ul class="otherprofile">
-   <img src="{{ asset('storage/images/'. Auth::user()->images) }}" class="user-image">
+   <img src="{{ asset('storage/images/'. $user ->images) }}" class="user-image">
    <div class="other-content">
      <li class="other-name">
        <span class="label">ユーザー名</span>
@@ -37,7 +37,7 @@
     <li class="post-text">{{ $post->post }}</li>
   </div>
   <div class="post-actions">
-    <li class="post-date">{{  $post->created_at  }}</li>
+    <li class="post-date">{{  $post->created_at->format('Y-m-d H:i')  }}</li>
   </div>
 </ul>
   @endforeach
