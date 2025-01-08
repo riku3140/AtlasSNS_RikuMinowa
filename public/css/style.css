@@ -76,8 +76,8 @@ header{
 
 .nav-menu {
     display: none;   /*これがないと開きっぱになる*/
-    width: 25vw;
-    margin-bottom: calc(150% - 50vw);
+    width: 20vw;
+    margin-bottom: calc(150% - 48vw);
     background-color: #f9f9f9; /* 背景色を設定 */
     z-index: 1000;
     border-color: #19448e;
@@ -116,6 +116,15 @@ header{
     border-width: 1px;
     border-style: solid;
 
+}
+
+.menu-item:hover {
+    background-color: #223a70;
+}
+
+.menu-item.active a:visited{
+    text-decoration: none;
+    color: white;
 }
 
 /* 必要に応じて編集しご自身でSNS課題のレイアウトのようにカスタマイズしてください。 */
@@ -224,6 +233,14 @@ header{
     display: flex;
     align-items: center;
     margin-left: 100px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.add-profile {  /* プロフィール編集画面のレイアウト全体 */
+    display: flex;
+    align-items: center;
+    margin-left: 400px;
     margin-bottom: 20px;
     margin-top: 40px;
 }

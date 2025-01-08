@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="add-profile">
   <img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-icon">
 
 
