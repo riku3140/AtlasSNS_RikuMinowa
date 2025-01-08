@@ -53,6 +53,7 @@ header{
 .name{
     color: white;
     font-size: 20px;
+    padding: 0 20px;
 }
 
 .header-logo {
@@ -73,16 +74,21 @@ header{
     margin-right: 5px; /* アコーディオンメニューと画像の間に余白を追加 */
     font-size: 20px;
 }
+.accordion ul li a{
+    display: block;
+    padding: 50px 100px;
+}
 
 .nav-menu {
     display: none;   /*これがないと開きっぱになる*/
-    width: 20vw;
-    margin-bottom: calc(150% - 48vw);
+    width: 19.8vw;
     background-color: #f9f9f9; /* 背景色を設定 */
-    z-index: 1000;
     border-color: #19448e;
     border-width: 1px;
     border-style: solid;
+    position: absolute;
+    top: 120px;
+    right: 0px;
 }
 
 
@@ -110,7 +116,6 @@ header{
 }
 
 .menu-item{
-    padding: 20px 100px;
     text-align: center;
     border-color: #19448e;
     border-width: 1px;
@@ -122,8 +127,7 @@ header{
     background-color: #223a70;
 }
 
-.menu-item.active a:visited{
-    text-decoration: none;
+.nav-menu a:hover{
     color: white;
 }
 

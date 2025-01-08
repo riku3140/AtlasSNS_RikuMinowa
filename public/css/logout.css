@@ -67,7 +67,7 @@ header p {
 
 .register{                       /*新規ユーザー登録の全部*/
     background: rgba(0, 0, 0, 0.15);
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     max-width: 400px; /*黒いやつの横幅*/
     border-radius: 10px;
     display: flex;
@@ -116,8 +116,6 @@ header p {
 
 .login .input {
     display: block; /* ブロック要素にして縦に並ぶように */
-    color: white;
-    background: #d7003a;
     margin: 10px 0; /* 上下の余白を追加 */
     width: 100%; /* 横幅を100%に */
     height: 5vh;
@@ -157,6 +155,7 @@ h2{
 .return{
     color: #f0f0f0;
     text-align: center;
+    padding-top: 40px;
 }
 
 .register input[type="submit"]{
