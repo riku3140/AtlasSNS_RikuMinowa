@@ -25,7 +25,8 @@ class FollowsController extends Controller
         return view('follows.followerList',compact('followed','posts'));
     }
 
-    public function follow($userId)
+    //ユーザー検索の時
+    public function follow(Request $request,$userId)
     {
         // フォローしているか
         $follower = auth()->user();
@@ -44,11 +45,15 @@ class FollowsController extends Controller
                 'following_id' => $loggedInUserId,
                 'followed_id' => $followedUserId,
             ]);
+
+            if ($request->has('redirect_to')) {
+                return redirect($request->input('redirect_to'));
+    }
             return redirect('/search'); // フォロー後に元のページにリダイレクト
         }
     }
 
-    public function unfollow($userId)
+    public function unfollow(Request $request,$userId)
     {
         // フォローしているか
         $follower = auth()->user();
@@ -63,6 +68,10 @@ class FollowsController extends Controller
             ])
                 ->delete();
         }
+
+        if ($request->has('redirect_to')) {
+                return redirect($request->input('redirect_to'));
+    }
         return redirect('/search');
     }
 

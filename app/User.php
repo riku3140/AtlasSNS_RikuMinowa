@@ -50,6 +50,7 @@ class User extends Authenticatable
 
     }
 
+
     //フォロワー人数の取得
     public function isFollowed(Int $user_id){
         return (boolean) $this -> followers() -> where('following_id',$user_id) ->first();

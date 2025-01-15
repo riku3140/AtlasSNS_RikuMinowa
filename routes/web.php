@@ -47,6 +47,8 @@ Route::post('/follow/{id}','FollowsController@follow')->middleware('auth') ->nam
 Route::get('/unfollow','FollowsController@unfollow')->middleware('auth') ->name('unfollow');
 Route::post('/unfollow/{id}','FollowsController@unfollow')->middleware('auth') ->name('unfollow');
 
+
+
 Route::get('/followers','FollowsController@followerList')->middleware('auth');
 
 Route::get('/follows','UsersController@follows')->middleware('auth');

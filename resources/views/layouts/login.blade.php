@@ -35,7 +35,7 @@
                     <li class="menu-item"><a href="/logout">ログアウト</a></li>
                     </ul>
                 </div>
-                <img src="{{ asset('storage/'.Auth::user()->images) }}">
+                <img src="{{ asset('storage/'.Auth::user()->images) }}" class="header-icon">
             </div>
         </div>
     </header>

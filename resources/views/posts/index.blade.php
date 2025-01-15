@@ -5,9 +5,16 @@
   {!! Form::open(['url' => '/top']) !!}
   {{ Form::token() }}
   <div class="form-group">
+
+    <div class="error-container">
+        @if ($errors->has('text'))
+            <p class="error-message">{{ $errors->first('text') }}</p>
+        @endif
+    </div>
     <div class="input-container">
-      <img src="{{ asset('storage/images/' . Auth::user()->images) }}" alt="ユーザーアイコン" class="icon-image">
+      <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="ユーザーアイコン" class="icon-image">
       {{ Form::textarea('text', null, ['required', 'class' => 'form-control','placeholder' => '投稿内容を入力してください']) }}
+
       <button type="submit" class="post-btn"><img src="images/post.png" alt="送信" class="post-icon"></button>
     </div>
   </div>
@@ -17,7 +24,7 @@
 <div>
   @foreach($list as $list)
   <ul class="post-item">
-    <li class="post-name"><img src="{{ asset('storage/'.$list->user->images) }}" alt="ユーザーアイコン"></li>
+    <li class="post-name"><img src="{{ asset('storage/'.$list->user->images) }}" alt="ユーザーアイコン" class="header-icon"></li>
     <div class="post-content">
       <li class="post-username">{{ $list->user->username }}</li>
       <li class="post-text">{{ $list->post }}</li>
@@ -50,13 +57,15 @@
         <div class="modal__content">
            <form action="/post/update" method="post">
                 <textarea name="uppost" class="modal_post"></textarea>
+                @if ($errors->has('uppost'))
+                <p class="error-message">{{ $errors->first('uppost') }}</p>
+                @endif
                 <input type="hidden" name="id" class="modal_id" value="">
                 <button type="submit" class="update-button">
                   <img src="../images/edit.png" alt="更新" class="update-icon">
                 </button>
                 {{ csrf_field() }}
            </form>
-           <a class="js-modal-close" href="">閉じる</a>
         </div>
     </div>
 

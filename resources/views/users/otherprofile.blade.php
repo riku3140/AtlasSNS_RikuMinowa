@@ -2,7 +2,7 @@
 
 @section('content')
   <ul class="otherprofile">
-   <img src="{{ asset('storage/images/'. $user ->images) }}" class="user-image">
+   <img src="{{ asset('storage/'. $user ->images) }}" class="header-icon">
    <div class="other-content">
      <li class="other-name">
        <span class="label">ユーザー名</span>
@@ -17,11 +17,13 @@
       @if (auth()->user()->isFollowing($user->id))
       <form action="{{ route('unfollow', $user->id) }}" method="post">
         @csrf
+        <input type="hidden" name="redirect_to" value="{{ url()->full() }}">
         <button type="submit" class="unfollow-btn">フォロー解除</button>
       </form>
       @else
       <form action="{{ route('follows', $user->id) }}" method='post'>
         @csrf
+        <input type="hidden" name="redirect_to" value="{{ url()->full() }}">
         <button type="submit" class="follow-btn">フォローする</button>
       </form>
       @endif
@@ -31,7 +33,7 @@
 
 @foreach($posts as $post)
 <ul class="post-item">
-  <li class="post-name"><img src="{{ asset('storage/' .$post->user->images) }}" alt="フォローアイコン"></li>
+  <li class="post-name"><img src="{{ asset('storage/' .$post->user->images) }}" alt="フォローアイコン" class="header-icon"></li>
   <div class="post-content">
     <li class="post-username">{{ $post->user->username }}</li>
     <li class="post-text">{{ $post->post }}</li>

@@ -42,7 +42,7 @@ class UsersController extends Controller
             'max:40',
             Rule::unique('users', 'mail')->ignore($request->user()->id),
         ],
-        'password' => 'nullable|string|regex:/^[a-zA-Z0-9]+$/|min:8|max:20|confirmed',
+        'password' => 'required|string|regex:/^[a-zA-Z0-9]+$/|min:8|max:20|confirmed',
         'bio' => 'nullable|string|max:150',
         'images' => 'nullable|image|mimes:jpg,png,bmp,gif,svg|max:2048',
     ]);
@@ -52,7 +52,7 @@ class UsersController extends Controller
 
         if ($request->hasFile('images')) {
         $dir = 'img';
-        $image = $request->file('images')->store('storage/'); // 画像登録処理
+        $image = $request->file('images')->store('public/'); // 画像登録処理
         $filename = basename($image);
     } else {
         // 画像のアップロードがない場合、既存の画像を使用

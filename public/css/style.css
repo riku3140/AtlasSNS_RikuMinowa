@@ -189,6 +189,9 @@ header{
 
 .post-text {
     margin-top: 30px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 600px;
 }
 
 .post-actions {
@@ -256,11 +259,16 @@ header{
     padding-bottom: 60px;
 }
 
+.header-icon{
+    width: 64px;
+    height: 64px;
+}
 
 
 .form-group {
     display: flex;
-    align-items: flex-start; /* 中央ではなく上に揃える */
+    flex-direction: column; /* 縦方向に配置 */
+    align-items: flex-start; /* 左揃え */
     width: 100%;
 }
 
@@ -277,9 +285,13 @@ header{
     width: 900px;
     height: 100px;
     font-size: 20px;
-    opacity: 0.3;
+    color: #000;
 }
 
+.form-control::placeholder {
+    color: rgba(0, 0, 0, 0.3); /* 半透明の黒色 */
+    font-size: 20px; /* プレースホルダーのフォントサイズ */
+}
 
 
 .delete-button {
@@ -646,6 +658,8 @@ header{
 
 .profile-icon{
     padding-bottom: 550px;
+    width: 64px;
+    height: 64px;
 }
 
 
@@ -664,22 +678,25 @@ header{
 /* フォローリストって文字 */
 .follow_top{
     font-size: 25px;
-    padding-bottom: 20px;
+    margin-left: 200px;
 }
 
 .follow_header{
     display: flex; /* 横並びにする */
     align-items: center; /* 縦方向の中央揃え */
-    justify-content: center; /* 横方向の中央揃え */
-    gap: 70px; /* h1 と .follow_icon の間のスペース */
+    gap: 40px; /* h1 と .follow_icon の間のスペース */
     margin-top: 20px;
     margin-bottom: 40px; /* 下に少し余白 */
     text-align: center;
     flex-wrap: wrap;
 }
 
-.follow_icon{
-    gap: 10px;               /* アイコン間のスペース */
+.follow_icon {
+    display: flex;
+    flex-wrap: wrap; /* アイコンが狭い場合折り返されるようにする */
+    gap: 10px; /* アイコン間のスペース */
+    justify-content: center; /* アイコンを中央揃え */
+    max-width: calc(10 * 60px + 9 * 10px); /* 10個分のアイコンとスペースの幅 */
 }
 
 .follow_icon a img {
@@ -855,4 +872,13 @@ header{
     margin-top: 80px;
     font-size: 14px;
     border-radius: 8px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+
+}
+.error-container {
+    margin-bottom: 8px; /* エラー文と投稿フォームの間に隙間を作成 */
 }
