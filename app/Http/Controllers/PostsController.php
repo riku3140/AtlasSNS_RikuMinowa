@@ -13,7 +13,7 @@ class PostsController extends Controller
     public function index(){
         $following_id = Auth::user()->follows()->pluck('followed_id');
         $user =Auth::user();
-        $posts = Post::with('user')->whereIn('user_id', $following_id)-> orwhere('user_id' , $user->id) ->get();
+        $posts = Post::with('user')->whereIn('user_id', $following_id)-> orwhere('user_id' , $user->id) ->orderBy('created_at', 'desc')->get();
         return view('posts.index',['user' => $user ,'list'=>$posts,]);
 }
 

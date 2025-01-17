@@ -15,7 +15,7 @@
     <div class="separator"></div>
     @foreach($posts as $post)
     <div class="follow_post">
-        <a class="post-name"><img src="{{ asset('storage/' .$followed->images) }}" alt="フォローアイコン"></a>
+        <a class="post-name" href="profile/{{$followed->id}}/otherprofile"><img src="{{ asset('storage/' .$post->user->images) }}" alt="フォローアイコン"></a>
         <div class="post-content">
             <p class="post-username">{{ $post->user->username }}</p>
             <p class="post-text">{{ $post->post }}</p>
