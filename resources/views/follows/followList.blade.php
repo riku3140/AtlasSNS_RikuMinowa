@@ -16,7 +16,7 @@
     @foreach($posts as $post)
     <div class="follow_post">
         <!--画像の表示　$postから持ってくる-->
-        <a class="post-name" href="profile/{{$follow->id}}/otherprofile"><img src="{{ asset('storage/' .$post->user->images) }}" alt="フォローアイコン" class="header-icon"></a>
+        <a class="post-name" href="profile/{{$post->user->id}}/otherprofile"><img src="{{ asset('storage/' .$post->user->images) }}" alt="フォローアイコン" class="header-icon"></a>
         <div class="post-content">
             <p class="post-username">{{ $post->user->username }}</p>
             <p class="post-text">{{ $post->post }}</p>
